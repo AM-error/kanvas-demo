@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.nav-logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-link:hover {
+    background-color: #555;
+}
+
+.nav-link:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* Hamburger Menu Button */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+/* Active state for hamburger */
+.nav-toggle.active .hamburger {
+    background-color: transparent;
+}
+
+.nav-toggle.active .hamburger::before {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active .hamburger::after {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Main Content Styles */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.section {
+    padding: 4rem 0;
+    min-height: 50vh;
+}
+
+.section h1,
+.section h2 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.section p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design - Mobile */
+@media screen and (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-menu.active {
+        max-height: 300px;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #555;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 1rem;
+    }
+
+    .nav-container {
+        padding: 1rem;
+    }
+}
+
+/* Tablet and larger screens */
+@media screen and (min-width: 769px) {
+    .nav-menu {
+        display: flex !important;
+    }
+}
